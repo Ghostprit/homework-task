@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <main>
+        <div class="py-5 bg-light">
+            <div class="container">
+                {{ form_start(form) }}
+                <div class="d-grid gap-2 justify-content-sm-center text-center">
+                    <h3 class="fw-bold">{{ form_label(form.title) }}</h1>
+                    <div class="lead mb-4 py-5">{{ form_widget(form.title, {'attr': {'style': 'width: 50vw'}}) }}</div>
+
+                    <h3 class="fw-bold">{{ form_label(form.image) }}</h1>
+                    <img class="img-fluid" src="{{ article.image }}" alt="">
+                    {{form_widget(form.image)}}
+
+                    <h3 class="fw-bold">{{ form_label(form.text) }}</h1>
+                    <div class="lead mb-4 py-5">{{ form_widget(form.text, {'attr': {'style': 'width: 75vw; height: 50vh'}}) }}</div>
+                </div>
+
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <a href="{{ path('home') }}" type="button" class="btn btn-secondary btn-lg px-4 gap-3">Cancel</a>
+                    {{ form_row(form.save, {'attr': {'class': 'btn btn-secondary btn-lg px-4 gap-3'}}) }}
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </main>
+{% endblock %}
